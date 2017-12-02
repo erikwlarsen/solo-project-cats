@@ -13,7 +13,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erikwlarsen/solo-project.git"
+    "url": "https://github.com/erikwlarsen/solo-project-cats.git"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
