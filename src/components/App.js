@@ -1,7 +1,7 @@
 const React = require('react');
 const Component = React.Component;
 const Gif = require('./Gif');
-// const ListElement = require('./ListElement');
+const ListElement = require('./ListElement');
 const axios = require('axios');
 
 
@@ -25,20 +25,18 @@ class App extends Component {
       let gifToSend;
       if (side === 'left') gifToSend = this.state.leftGif;
       else if (side === 'right') gifToSend = this.state.rightGif;
-      console.log('gif to be sent (before post request) is ', gifToSend);
 
       axios.post('http://localhost:3000/plus', {
         gifLink: gifToSend
       })
       .then((response, error) => {
-        console.log(response.data);
+        // console.log(response.data);
       });
     }
 
     this.getList = () => {
       axios.get('http://localhost:3000/list')
       .then((response, error) => {
-        console.log('new updated list response is ', response.data[0]);
         this.setState({ listElements: response.data });
       });
     }
@@ -69,11 +67,11 @@ class App extends Component {
 
     const listElements = [];
     
-    // this.state.listElements.forEach((elem, index) => {
-    //   listElements.push(
-    //     <ListElement key={'list' + index} still={elem.smallFixedImageLink} rank={index + 1} counter={elem.counter} />
-    //   );
-    // });
+    this.state.listElements.forEach((elem, index) => {
+      listElements.push(
+        <ListElement key={'list' + index} still={elem.smallFixedImageLink} rank={index + 1} counter={elem.counter} />
+      );
+    });
 
     return (
       <div>
@@ -85,7 +83,7 @@ class App extends Component {
           <button onClick={() => this.handleClick('right')} id="rightButton">Choose right</button>
         </div>
         <div id="listWrapper">
-          {/* {listElements} */}
+          {listElements}
         </div>
       </div>
     )

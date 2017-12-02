@@ -55,7 +55,6 @@ const migrate = (data) => {
 
 request(API_URL, (err, resp) => {
   let data = JSON.parse(resp.body);
-  // console.log('data from API is ', data.data[0]);
   migrate(data);
 });
 
