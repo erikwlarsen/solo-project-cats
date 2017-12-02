@@ -79,9 +79,10 @@ class App extends Component {
           {gifElements}
         </div>
         <div id="buttonWrapper">
-          <button onClick={() => this.handleClick('left')} id="leftButton">Choose left</button>
-          <button onClick={() => this.handleClick('right')} id="rightButton">Choose right</button>
+          <button onClick={() => this.handleClick('left')} id="leftButton">L E F T</button>
+          <button onClick={() => this.handleClick('right')} id="rightButton">R I G H T</button>
         </div>
+        <h3><center>T O P C A T S</center></h3>
         <div id="listWrapper">
           {listElements}
         </div>

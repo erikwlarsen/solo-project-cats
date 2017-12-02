@@ -1,0 +1,94 @@
+body {
+  background: red;
+  background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, red , yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, red , yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, red , yellow); /* Standard syntax */
+  margin: 0;
+  padding: 0;
+  font-family: "Proxima Nova","Helvetica Neue", Helvetica, Arial, Sans Serif;
+}
+
+h1 {
+  color: orange;
+  background: -webkit-linear-gradient(left, cyan , magenta); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, cyan , magenta); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, cyan , magenta); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, cyan , magenta); /* Standard syntax */
+  font-style: italic;
+  font-size: 80px;
+  margin-bottom: 0px;
+  margin-top: 14px;
+}
+
+h2 {
+  font-size: 34px;
+  color: magenta;
+  text-shadow: -2px -2px cyan;
+}
+
+#gifWrapper {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+}
+
+.gif {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 10px inset limegreen
+}
+
+#buttonWrapper {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+button {
+  font-size: 30px;
+  background: magenta;
+  color: lightblue;
+  border: none;
+  box-shadow: -2px -2px limegreen;
+}
+
+#listWrapper {
+  margin-top: 20px;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: orange;
+  background: -webkit-linear-gradient(left, cyan , magenta); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, cyan , magenta); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, cyan , magenta); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, cyan , magenta); /* Standard syntax */
+  font-style: italic;
+  font-size: 48px;
+  margin-bottom: 0px;
+  margin-top: 55px;
+  margin-bottom: 40px;
+}
+
+.listElementWrapper {
+  width: 18%;
+}
+
+.counter {
+  text-align: left;
+  font-style: oblique;
+  font-weight: bold;
+  color: limegreen;
+  font-size: 30px;
+  text-shadow: -2px -2px maroon;
+}
+
+.listImage {
+  border: 4px inset magenta;
+}

@@ -24,7 +24,7 @@ class Gif extends Component {
 
   render() {
     return (
-      <img src={this.props.gif} width={600} onClick={() => this.props.handleClick(this.props.side)} height={600}/>
+      <img className="gif" src={this.props.gif} width={600} onClick={() => this.props.handleClick(this.props.side)} height={600}/>
     )
   }
 }

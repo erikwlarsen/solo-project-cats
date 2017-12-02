@@ -8,9 +8,9 @@ class ListElement extends Component {
   
   render() {
     return (
-      <div id="listElementWrapper">
-        <span>{this.props.counter}</span>
-        <img src={this.props.still} />
+      <div className="listElementWrapper">
+        <div className="counter">{this.props.counter} wins</div>
+        <img className="listImage" src={this.props.still} width={200} height={200} />
       </div>
     )
   }

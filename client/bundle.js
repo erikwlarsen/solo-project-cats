@@ -19039,14 +19039,23 @@ var App = function (_Component) {
             { onClick: function onClick() {
                 return _this3.handleClick('left');
               }, id: 'leftButton' },
-            'Choose left'
+            'L E F T'
           ),
           React.createElement(
             'button',
             { onClick: function onClick() {
                 return _this3.handleClick('right');
               }, id: 'rightButton' },
-            'Choose right'
+            'R I G H T'
+          )
+        ),
+        React.createElement(
+          'h3',
+          null,
+          React.createElement(
+            'center',
+            null,
+            'T O P C A T S'
           )
         ),
         React.createElement(
@@ -19098,21 +19107,21 @@ var Gif = function (_Component) {
   }
 
   _createClass(Gif, [{
-    key: 'shouldComponentUpdate',
+    key: "shouldComponentUpdate",
     value: function shouldComponentUpdate(nextProps, nextState) {
       if (this.props.gif !== nextProps.gif) return true;else return false;
     }
   }, {
-    key: 'componentDidUpdate',
+    key: "componentDidUpdate",
     value: function componentDidUpdate() {
       this.props.getList();
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this2 = this;
 
-      return React.createElement('img', { src: this.props.gif, width: 600, onClick: function onClick() {
+      return React.createElement("img", { className: "gif", src: this.props.gif, width: 600, onClick: function onClick() {
           return _this2.props.handleClick(_this2.props.side);
         }, height: 600 });
     }
@@ -19155,13 +19164,14 @@ var ListElement = function (_Component) {
     value: function render() {
       return React.createElement(
         "div",
-        { id: "listElementWrapper" },
+        { className: "listElementWrapper" },
         React.createElement(
-          "span",
-          null,
-          this.props.counter
+          "div",
+          { className: "counter" },
+          this.props.counter,
+          " wins"
         ),
-        React.createElement("img", { src: this.props.still })
+        React.createElement("img", { className: "listImage", src: this.props.still, width: 200, height: 200 })
       );
     }
   }]);
