@@ -22,7 +22,7 @@ const GifEntry = sequelize.define('gifEntry', {
   smallFixedImageLink: Sequelize.STRING,
   counter: { type: Sequelize.INTEGER, defaultValue: 0 },
   createdAt: { type: Sequelize.DATE },
-  // tags: Sequelize.ARRAY
+  tags: Sequelize.STRING
 });
 
 const Update = sequelize.define('update', {
@@ -44,7 +44,7 @@ const migrate = (data) => {
         smallFixedImageLink: entry.images.fixed_width_small_still.url,
         counter: 0,
         createdAt: new Date(Date.now()),
-        // tags: getTags(entry.images.title)
+        tags: JSON.stringify(getTags(entry.title))
       });
     });
     Update.create({
@@ -58,3 +58,5 @@ request(API_URL, (err, resp) => {
   console.log('data from API is ', data.data[0]);
   migrate(data);
 });
+
+module.exports = { GifEntry, Update }
