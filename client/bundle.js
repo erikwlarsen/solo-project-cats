@@ -18981,9 +18981,11 @@ var App = function (_Component) {
 
       axios.post('http://localhost:3000/plus', {
         gifLink: gifToSend
-      }).then(function (response, error) {
-        // console.log(response.data);
-      });
+      }).then(function (response, error) {});
+    };
+
+    _this.listClick = function (link) {
+      _this.setState({ leftGif: link });
     };
 
     _this.getList = function () {
@@ -19020,7 +19022,7 @@ var App = function (_Component) {
       var listElements = [];
 
       this.state.listElements.forEach(function (elem, index) {
-        listElements.push(React.createElement(ListElement, { key: 'list' + index, still: elem.smallFixedImageLink, rank: index + 1, counter: elem.counter }));
+        listElements.push(React.createElement(ListElement, { listClick: _this3.listClick, key: 'list' + index, imageLink: elem.imageLink, still: elem.smallFixedImageLink, rank: index + 1, counter: elem.counter }));
       });
 
       return React.createElement(
@@ -19089,13 +19091,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var React = __webpack_require__(2);
 var Component = React.Component;
-// const axios = require('axios');
-
-// const Gif = (props) => {
-//   return (
-//     <img src={props.gif} width={600} height={600}/>
-//   )
-// }
 
 var Gif = function (_Component) {
   _inherits(Gif, _Component);
@@ -19162,6 +19157,8 @@ var ListElement = function (_Component) {
   _createClass(ListElement, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
         "div",
         { className: "listElementWrapper" },
@@ -19171,7 +19168,9 @@ var ListElement = function (_Component) {
           this.props.counter,
           " wins"
         ),
-        React.createElement("img", { className: "listImage", src: this.props.still, width: 200, height: 200 })
+        React.createElement("img", { className: "listImage", src: this.props.still, onClick: function onClick() {
+            return _this2.props.listClick(_this2.props.imageLink);
+          }, width: 200, height: 200 })
       );
     }
   }]);

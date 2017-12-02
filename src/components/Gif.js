@@ -1,12 +1,5 @@
 const React = require('react');
 const Component = React.Component;
-// const axios = require('axios');
-
-// const Gif = (props) => {
-//   return (
-//     <img src={props.gif} width={600} height={600}/>
-//   )
-// }
 
 class Gif extends Component {
   constructor(props) {

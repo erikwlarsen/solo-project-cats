@@ -19,7 +19,7 @@ class App extends Component {
       .then((response, error) => {
         if(error) console.log(error);
         if (side === 'left') this.setState({ rightGif: response.data});
-        else if (side === 'right') this.setState({ leftGif: response.data})
+        else if (side === 'right') this.setState({ leftGif: response.data});
       });
 
       let gifToSend;
@@ -30,8 +30,11 @@ class App extends Component {
         gifLink: gifToSend
       })
       .then((response, error) => {
-        // console.log(response.data);
       });
+    }
+
+    this.listClick = (link) => {
+      this.setState({ leftGif: link });
     }
 
     this.getList = () => {
@@ -69,7 +72,7 @@ class App extends Component {
     
     this.state.listElements.forEach((elem, index) => {
       listElements.push(
-        <ListElement key={'list' + index} still={elem.smallFixedImageLink} rank={index + 1} counter={elem.counter} />
+        <ListElement listClick ={this.listClick} key={'list' + index} imageLink={elem.imageLink} still={elem.smallFixedImageLink} rank={index + 1} counter={elem.counter} />
       );
     });
 
