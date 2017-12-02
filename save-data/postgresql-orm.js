@@ -2,27 +2,27 @@ const Sequelize = require('sequelize');
 const request = require('request');
 const API_URL = 'https://api.giphy.com/v1/gifs/search?api_key=MW5czB76HwkBu7TtxFZ4brmlICTLCLNA&q=cat&limit=200&offset=0&rating=G&lang=en'
 
-const sequelize = new Sequelize('solo_db', 'username', 'password', {
+const sequelize = new Sequelize('solo_db', 'eriklarsen', 'password', {
   host: 'localhost',
   dialect: 'postgres',
 });
 
-// sequelize.authenticate().then(() => {
-//   console.log('Connection has been established successfully.');
-// })
-// .catch(err => {
-//   console.error('Unable to connect to the database:', err);
-// });
+sequelize.authenticate().then(() => {
+  console.log('Connection has been established successfully.');
+})
+.catch(err => {
+  console.error('Unable to connect to the database:', err);
+});
 
 const GifEntry = sequelize.define('gifEntry', {
-  _id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+  _id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
   id: Sequelize.STRING,
   imageLink: Sequelize.STRING,
   smallImageLink: Sequelize.STRING,
   smallFixedImageLink: Sequelize.STRING,
-  counter: {type: Sequelize.INTEGER, defaultValue: 0},
-  createdAt: {type: Sequelize.DATE, defaultValue: sequelize.literal('NOW()')},
-  tags: Sequelize.ARRAY
+  counter: { type: Sequelize.INTEGER, defaultValue: 0 },
+  createdAt: { type: Sequelize.DATE },
+  // tags: Sequelize.ARRAY
 });
 
 const Update = sequelize.define('update', {
@@ -35,7 +35,7 @@ const getTags = (data) => {
 }
 
 const migrate = (data) => {
-  sequelize.sync().then(() => {
+  sequelize.sync({ force: true }).then(() => {
     data.data.forEach(entry => {
       GifEntry.create({
         id: entry.id,
@@ -44,14 +44,17 @@ const migrate = (data) => {
         smallFixedImageLink: entry.images.fixed_width_small_still.url,
         counter: 0,
         createdAt: new Date(Date.now()),
-        tags: getTags(entry.images.title)
+        // tags: getTags(entry.images.title)
       });
     });
+    Update.create({
+      lastUpdate: new Date(Date.now())
+    })
   });
 }
 
 request(API_URL, (err, resp) => {
   let data = JSON.parse(resp.body);
-  console.log('data from API is ', data);
+  console.log('data from API is ', data.data[0]);
   migrate(data);
 });
