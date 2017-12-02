@@ -35,9 +35,9 @@ const getTags = (data) => {
 }
 
 const migrate = (data) => {
-  sequelize.sync({ force: true }).then(() => {
+  sequelize.sync({ force: false }).then(() => {
     data.data.forEach(entry => {
-      GifEntry.create({
+      GifEntry.findOrCreate({ where: { id:entry.id },
         id: entry.id,
         imageLink: entry.images.fixed_width.url,
         smallImageLink: entry.images.fixed_width_small.url,
@@ -55,8 +55,8 @@ const migrate = (data) => {
 
 request(API_URL, (err, resp) => {
   let data = JSON.parse(resp.body);
-  console.log('data from API is ', data.data[0]);
+  // console.log('data from API is ', data.data[0]);
   migrate(data);
 });
 
-module.exports = { GifEntry, Update }
+module.exports = { GifEntry, Update, sequelize }

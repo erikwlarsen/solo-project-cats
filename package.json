@@ -17,13 +17,17 @@
     "url": "https://github.com/erikwlarsen/solo-project-cats.git"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "file-system": "^2.2.2",
     "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.2.1",
+    "net": "^1.0.2",
     "path": "^0.12.7",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
@@ -31,6 +35,7 @@
     "react-dom": "^16.2.0",
     "request": "^2.83.0",
     "sequelize": "^4.23.4",
+    "tls": "0.0.1",
     "webpack": "^3.9.1"
   }
 }
