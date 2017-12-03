@@ -39,6 +39,10 @@ h2 {
   border: 10px inset limegreen
 }
 
+.gif:hover {
+  cursor: pointer;
+}
+
 #buttonWrapper {
   display: flex;
   display: -webkit-flex;
@@ -52,6 +56,10 @@ button {
   color: lightblue;
   border: none;
   box-shadow: -2px -2px limegreen;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 #listWrapper {
@@ -91,4 +99,8 @@ h3 {
 
 .listImage {
   border: 4px inset magenta;
+}
+
+.listImage:hover {
+  cursor: pointer;
 }
